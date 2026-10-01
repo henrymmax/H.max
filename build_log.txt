@@ -1,0 +1,74 @@
+Log do build 
+Requirement already satisfied: pyinstaller in C:\Users\115786\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (6.22.3)
+Requirement already satisfied: altgraph in C:\Users\115786\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from pyinstaller) (0.17.5)
+Requirement already satisfied: packaging>=22.0 in C:\Users\115786\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from pyinstaller) (26.3)
+Requirement already satisfied: pefile>=2022.5.30 in C:\Users\115786\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from pyinstaller) (2024.8.26)
+Requirement already satisfied: pyinstaller-hooks-contrib>=2026.7 in C:\Users\115786\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from pyinstaller) (2026.7)
+Requirement already satisfied: pywin32-ctypes>=0.2.1 in C:\Users\115786\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from pyinstaller) (0.2.3)
+Requirement already satisfied: setuptools>=42.0.0 in C:\Users\115786\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from pyinstaller) (84.0.0)
+470 INFO: PyInstaller: 6.22.3, contrib hooks: 2026.7
+471 INFO: Python: 3.14.7
+493 INFO: Platform: Windows-11-10.0.26200-SP0
+493 INFO: Python environment: C:\Users\115786\AppData\Local\Python\pythoncore-3.14-64
+495 INFO: wrote C:\Users\115786\OneDrive - TENDA ATACADO SA\햞ea de Trabalho\Hmax\launcher\Hmax.spec
+500 INFO: Removing temporary files and cleaning cache in C:\Users\115786\AppData\Local\pyinstaller
+504 INFO: Module search paths (PYTHONPATH):
+['C:\\Users\\115786\\OneDrive - TENDA ATACADO SA\\햞ea de '
+ 'Trabalho\\Hmax\\launcher',
+ 'C:\\Users\\115786\\AppData\\Local\\Python\\pythoncore-3.14-64\\python314.zip',
+ 'C:\\Users\\115786\\AppData\\Local\\Python\\pythoncore-3.14-64\\DLLs',
+ 'C:\\Users\\115786\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib',
+ 'C:\\Users\\115786\\AppData\\Local\\Python\\pythoncore-3.14-64',
+ 'C:\\Users\\115786\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages',
+ 'C:\\Users\\115786\\OneDrive - TENDA ATACADO SA\\햞ea de '
+ 'Trabalho\\Hmax\\launcher']
+1214 INFO: Appending 'datas' from .spec
+1336 INFO: checking Analysis
+1336 INFO: Building Analysis because Analysis-00.toc is non existent
+1336 INFO: Looking for Python shared library...
+1336 INFO: Using Python shared library: C:\Users\115786\AppData\Local\Python\pythoncore-3.14-64\python314.dll
+1336 INFO: Running Analysis Analysis-00.toc
+1336 INFO: Target bytecode optimization level: 0
+1336 INFO: Initializing module dependency graph...
+1354 INFO: Initializing module graph hook caches...
+1443 INFO: Analyzing modules for base_library.zip ...
+4926 INFO: Processing standard module hook 'hook-encodings.py' from 'C:\\Users\\115786\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PyInstaller\\hooks'
+5648 INFO: Processing standard module hook 'hook-pickle.py' from 'C:\\Users\\115786\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PyInstaller\\hooks'
+5872 INFO: Processing standard module hook 'hook-math.py' from 'C:\\Users\\115786\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PyInstaller\\hooks'
+5999 INFO: Processing standard module hook 'hook-difflib.py' from 'C:\\Users\\115786\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PyInstaller\\hooks'
+6016 INFO: Processing standard module hook 'hook-heapq.py' from 'C:\\Users\\115786\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PyInstaller\\hooks'
+8545 INFO: Caching module dependency graph...
+8566 INFO: Analyzing C:\Users\115786\OneDrive - TENDA ATACADO SA\햞ea de Trabalho\Hmax\launcher\hmax_launcher.py
+8604 INFO: Processing standard module hook 'hook-sysconfig.py' from 'C:\\Users\\115786\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PyInstaller\\hooks'
+8613 INFO: Processing standard module hook 'hook-_ctypes.py' from 'C:\\Users\\115786\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PyInstaller\\hooks'
+8623 INFO: Processing module hooks (post-graph stage)...
+8634 INFO: Performing binary vs. data reclassification (35 entries)
+8682 INFO: Looking for ctypes DLLs
+8686 INFO: Analyzing run-time hooks ...
+8686 INFO: Including run-time hook 'pyi_rth_inspect.py' from 'C:\\Users\\115786\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+8693 INFO: Creating base_library.zip...
+8705 INFO: Looking for dynamic libraries
+8999 INFO: Extra DLL search directories (AddDllDirectory): []
+8999 INFO: Extra DLL search directories (PATH): []
+9173 INFO: Warnings written to C:\Users\115786\OneDrive - TENDA ATACADO SA\햞ea de Trabalho\Hmax\launcher\build\Hmax\warn-Hmax.txt
+9183 INFO: Graph cross-reference written to C:\Users\115786\OneDrive - TENDA ATACADO SA\햞ea de Trabalho\Hmax\launcher\build\Hmax\xref-Hmax.html
+9207 INFO: checking PYZ
+9207 INFO: Building PYZ because PYZ-00.toc is non existent
+9207 INFO: Building PYZ (ZlibArchive) C:\Users\115786\OneDrive - TENDA ATACADO SA\햞ea de Trabalho\Hmax\launcher\build\Hmax\PYZ-00.pyz
+9294 INFO: Building PYZ (ZlibArchive) C:\Users\115786\OneDrive - TENDA ATACADO SA\햞ea de Trabalho\Hmax\launcher\build\Hmax\PYZ-00.pyz completed successfully.
+9307 INFO: checking PKG
+9307 INFO: Building PKG because PKG-00.toc is non existent
+9307 INFO: Building PKG (CArchive) Hmax.pkg
+10233 INFO: Building PKG (CArchive) Hmax.pkg completed successfully.
+10235 INFO: Bootloader C:\Users\115786\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PyInstaller\bootloader\Windows-64bit-intel\runw.exe
+10235 INFO: checking EXE
+10235 INFO: Building EXE because EXE-00.toc is non existent
+10235 INFO: Building EXE from EXE-00.toc
+10236 INFO: Copying bootloader EXE to C:\Users\115786\OneDrive - TENDA ATACADO SA\햞ea de Trabalho\Hmax\launcher\dist\Hmax.exe
+10243 INFO: Copying icon to EXE
+10252 INFO: Copying 0 resources to EXE
+10252 INFO: Embedding manifest in EXE
+10257 INFO: Appending PKG archive to EXE
+10287 INFO: Fixing EXE headers
+10367 INFO: Building EXE from EXE-00.toc completed successfully.
+10369 INFO: Build complete! The results are available in: C:\Users\115786\OneDrive - TENDA ATACADO SA\햞ea de Trabalho\Hmax\launcher\dist
