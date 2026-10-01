@@ -1,6 +1,6 @@
 {
   "licenca": {
-    "status": "Liberado",
+    "status": "LIBERADO",
     "data_expiracao": "31/12/2026",
     "mensagem_bloqueio": "Licença expirada ou desativada pelo administrador. Entre em contato com o suporte.",
     "titulo_sistema": "Versão de Avaliação PDV / Selfie / Vale Troca"
@@ -9,9 +9,9 @@
     "HenryDev":        ["Henry Max", "15965RWH93E901", "115965"],
     "Liderfiscal":     ["João", "15604PWG11U131", "115604"],
     "Lidermonit":      ["Irakitan Rodrigues", "15404IWJ13O131", "115404"],
-    "Alyssonremoto":   ["Alysson", "15604PWG11U131", "115604"],
+    "Franciscoremoto":   ["Francisco", "15799KWF10R121", "115604"],
     "Taiseremoto":     ["Taise", "15574KWA10N121", "115574"],
-    "Andreiaremoto":   ["Andreia", "15962RWA86N991", "115962"],
+    "Andrearemoto":   ["Andrea", "27112MWA11N121", "127112"],
     "Jessicaremoto":   ["Jessica", "15955RWJ95E901", "115955"],
     "Paularemoto":     ["Paula", "15951HWA11N121", "115951"],
     "Lucianoremoto":   ["Luciano", "15990NWL14U151", "115990"],
@@ -23,6 +23,6 @@
     "Rosangelaremoto": ["Rosangela", "15598KWR14O141", "115598"],
     "Carlaremoto":     ["Carla Barros", "15795JWC13A131", "115795"],
     "Caueremoto":      ["Caue", "15786NWC13A131", "115786"],
-    "Anaremoto":       ["Ana Clara", "27084OWA11N131", "127084"]
+    "Anaremoto":       ["Ana Clara", "27084WA11N121", "127084"]
   }
 }
