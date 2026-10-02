@@ -1,0 +1,70 @@
+
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: windows-latest
+
+steps:
+  - task: UsePythonVersion@0
+    displayName: Python 3.12
+    inputs:
+      versionSpec: '3.12'
+
+  - script: python tools/validar_dados.py launcher/dados.json
+    displayName: Validar dados.json
+
+  - script: python -m pip install --upgrade pip pyinstaller
+    displayName: Instalar PyInstaller
+
+  - powershell: |
+      # Nao escrever o macro do token dentro do script: o Azure o substitui pelo valor real
+      # e a comparacao daria sempre "igual", derrubando a pipeline mesmo com o token certo.
+      $pat = $env:DEVOPS_PAT
+      if ([string]::IsNullOrWhiteSpace($pat) -or $pat.StartsWith('$' + '(')) {
+        Write-Host "##vso[task.logissue type=error]DEVOPS_PAT nao definido: o app ficaria lendo o Gist e NAO o Azure. Crie a variavel secreta DEVOPS_PAT (escopo Code Read)."
+        exit 1
+      }
+      $proj = [uri]::EscapeDataString("$(System.TeamProject)")
+      $repo = [uri]::EscapeDataString("$(Build.Repository.Name)")
+      $b64 = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":" + $pat))
+      $url = "$(System.CollectionUri)$proj/_apis/git/repositories/$repo/items?path=/launcher/dados.json&versionDescriptor.version=main&versionDescriptor.versionType=branch&`$format=text&api-version=7.1"
+      # Testa a URL/token antes de embutir no exe
+      try {
+        $r = Invoke-WebRequest -Uri $url -Headers @{ Authorization = "Basic $b64" } -UseBasicParsing -MaximumRedirection 0
+      } catch {
+        Write-Host "##vso[task.logissue type=error]Falha ao ler dados.json no Azure com o token: $($_.Exception.Message)"
+        exit 1
+      }
+      if ($r.StatusCode -ne 200 -or $r.Content -notmatch '"usuarios"') {
+        Write-Host "##vso[task.logissue type=error]Resposta inesperada (HTTP $($r.StatusCode)). Token sem permissao Code (Read) ou vencido?"
+        exit 1
+      }
+      Set-Content -Path launcher/fonte_banco.ini -Value ("[azure]`r`nurl=$url`r`nauth=Basic $b64`r`n") -Encoding ASCII
+      Write-Host "OK: app sera gerado lendo o dados.json do Azure DevOps (token validado)."
+    displayName: Configurar e validar fonte do banco
+    env:
+      DEVOPS_PAT: $(DEVOPS_PAT)
+
+  - script: >
+      python -m PyInstaller --noconfirm --clean --onefile --noconsole --name Hmax
+      --icon "Hmaxlogo.ico"
+      --add-data "F1_LS_3_1_0.ahk;."
+      --add-data "Hmax_AutoUpdate.ahk;."
+      --add-data "fonte_banco.ini;."
+      --add-data "Pass64_original.exe;."
+      --add-data "Pass32.exe;."
+      --add-data "Hmaxlogo.ico;."
+      --add-data "Hmaxlogo.png;."
+      --add-data "UX;UX"
+      hmax_launcher.py
+    workingDirectory: launcher
+    displayName: Gerar Hmax.exe
+
+  - task: PublishPipelineArtifact@1
+    displayName: Publicar executavel
+    inputs:
+      targetPath: launcher/dist/Hmax.exe
+      artifact: Hmax-exe
