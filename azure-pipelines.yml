@@ -28,13 +28,15 @@ steps:
         exit 1
       }
       $proj = [uri]::EscapeDataString("$(System.TeamProject)")
-      $repo = [uri]::EscapeDataString("$(Build.Repository.Name)")
+      $repo = [uri]::EscapeDataString("$(Build.Repository.ID)")
+      Write-Host "Provedor do repositorio: $(Build.Repository.Provider) | Nome: $(Build.Repository.Name) | Projeto: $(System.TeamProject)"
       $b64 = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":" + $pat))
       $url = "$(System.CollectionUri)$proj/_apis/git/repositories/$repo/items?path=/launcher/dados.json&versionDescriptor.version=main&versionDescriptor.versionType=branch&`$format=text&api-version=7.1"
       # Testa a URL/token antes de embutir no exe
       try {
         $r = Invoke-WebRequest -Uri $url -Headers @{ Authorization = "Basic $b64" } -UseBasicParsing -MaximumRedirection 0
       } catch {
+        Write-Host "URL testada (sem token): $url"
         Write-Host "##vso[task.logissue type=error]Falha ao ler dados.json no Azure com o token: $($_.Exception.Message)"
         exit 1
       }
